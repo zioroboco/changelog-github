@@ -9,7 +9,7 @@ jest.mock(
     // this is duplicated because jest.mock reordering things
     const data = {
       commit: "a085003",
-      user: "Andarist",
+      user: "zioroboco",
       pull: 1613,
       repo: "emotion-js/emotion",
     }
@@ -82,7 +82,7 @@ describe.each([data.commit, "wrongcommit", undefined])(
               )
             )
           ).toEqual(
-            `\n\n- [#1613](https://github.com/emotion-js/emotion/pull/1613) [\`a085003\`](https://github.com/emotion-js/emotion/commit/a085003) Thanks [@Andarist](https://github.com/Andarist)! - something\n`
+            `\n\n- [#1613](https://github.com/emotion-js/emotion/pull/1613) [\`a085003\`](https://github.com/emotion-js/emotion/commit/a085003) Thanks [@zioroboco](https://github.com/zioroboco)! - something\n`
           )
         })
       }
@@ -93,7 +93,7 @@ describe.each([data.commit, "wrongcommit", undefined])(
           ...getChangeset(`commit: ${data.commit}`, commitFromChangeset)
         )
       ).toEqual(
-        `\n\n- [#1613](https://github.com/emotion-js/emotion/pull/1613) [\`a085003\`](https://github.com/emotion-js/emotion/commit/a085003) Thanks [@Andarist](https://github.com/Andarist)! - something\n`
+        `\n\n- [#1613](https://github.com/emotion-js/emotion/pull/1613) [\`a085003\`](https://github.com/emotion-js/emotion/commit/a085003) Thanks [@zioroboco](https://github.com/zioroboco)! - something\n`
       )
     })
   }

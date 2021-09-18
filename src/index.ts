@@ -100,19 +100,23 @@ const changelogFunctions: ChangelogFunctions = {
       }
     })()
 
-    const users = usersFromSummary.length
-      ? usersFromSummary
-          .map(
+    const users = (
+      usersFromSummary.length
+        ? usersFromSummary.map(
             userFromSummary =>
               `[@${userFromSummary}](https://github.com/${userFromSummary})`
           )
-          .join(", ")
-      : links.user
+        : [links.user]
+    )
+      .filter(user => !user?.match(/zioroboco/))
+      .join(", ")
+
+    console.log(users)
 
     const prefix = [
       links.pull === null ? "" : ` ${links.pull}`,
       links.commit === null ? "" : ` ${links.commit}`,
-      users === null ? "" : ` Thanks ${users}!`,
+      users === null || users.length === 0 ? "" : ` Thanks ${users}!`,
     ].join("")
 
     return `\n\n-${prefix ? `${prefix} -` : ""} ${firstLine}\n${futureLines
